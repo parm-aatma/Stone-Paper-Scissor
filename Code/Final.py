@@ -1,12 +1,10 @@
 import cv2 as cv
 from keras.models import load_model
 import numpy as np
-import glob as gb
-paths=gb.glob('C:/Enlighten here/Essentials/Machine Learning/MyProjects/Kaggle-Paper Rock Scissors/Data/rock/*jpg')
-model=load_model('C:/Enlighten here/Essentials/Machine Learning/MyProjects/Kaggle-Paper Rock Scissors/best_model.hdf5')
+model=load_model('PATH2')#PATH2 same as that in Training.py
 cap=cv.VideoCapture(0)
 (R,G,B)=(205.285,205.295,200.487)
-out = cv.VideoWriter('C:/Enlighten here/Essentials/Machine Learning/MyProjects/Kaggle-Paper Rock Scissors/Sample.avi',cv.VideoWriter_fourcc('M','J','P','G'), 10, (640,480))
+out = cv.VideoWriter('PATH3/Sample.avi',cv.VideoWriter_fourcc('M','J','P','G'), 10, (640,480))# PATH3 is where the recoreded frames will be saved
 player1=input('Enter the name of the first player:')
 player2=input('Enter the name of the second player:')
 
