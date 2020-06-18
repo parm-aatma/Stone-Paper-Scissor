@@ -1,5 +1,5 @@
 import cv2 as cv
-PATH='C:/Enlighten here/Essentials/Machine Learning/MyProjects/Kaggle-Paper Rock Scissors/Data'
+PATH=''# Enter the local folder path where data will be generated
 gestures=list(('empty','rock','paper','scissors'))
 count=0
 cap=cv.VideoCapture(0)
@@ -41,7 +41,7 @@ for folder in gestures:
         frame = cv.flip(frame, 1)
         cv.imshow('frame',frame)
         roi=cv.resize(roi,(128,128))
-        cv.imwrite(f'C:/Enlighten here/Essentials/Machine Learning/MyProjects/Kaggle-Paper Rock Scissors/Data/{folder}/{folder}{count}.jpg', roi)
+        cv.imwrite(f'PATH/{folder}/{folder}{count}.jpg', roi)# Here word PATH is not part of the path, but the representation of the above initialised PATH
         cv.waitKey(10)
         count+=1
         print(f'[INFO] {count} images captured...')
