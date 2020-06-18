@@ -12,7 +12,7 @@ from keras.preprocessing.image import ImageDataGenerator
 from sklearn.model_selection import train_test_split
 from keras.callbacks import ModelCheckpoint
 
-PATH='C:/Enlighten here/Essentials/Machine Learning/MyProjects/Kaggle-Paper Rock Scissors/Data'
+PATH=''# The same PATH as in generating_data.py
 
 data=[]
 train_X=[]
@@ -58,8 +58,8 @@ aug=ImageDataGenerator(rotation_range=20,zoom_range=0.15,width_shift_range=0.2,h
                        horizontal_flip=True,fill_mode="nearest")
 opt = Adam(3e-4)
 
-checkpoint = ModelCheckpoint("C:/Enlighten here/Essentials/Machine Learning/MyProjects/Kaggle-Paper Rock Scissors/best_model.hdf5", monitor='loss', verbose=1,
-    save_best_only=True, mode='auto', period=1)
+checkpoint = ModelCheckpoint("PATH2/best_model.hdf5", monitor='loss', verbose=1,
+    save_best_only=True, mode='auto', period=1)#PATH2 is the representation of the path where the checkpoints will be stored
 
 model=Sequential([
     VGG16(weights='imagenet',include_top=False,input_shape=(128,128,3),classes=4),
@@ -80,4 +80,4 @@ H = model.fit(
     callbacks=[checkpoint],
 	epochs=10)
 print('[INFO]Saving model......')
-model.save(f'C:/Enlighten here/Essentials/Machine Learning/MyProjects/Kaggle-Paper Rock Scissors/MobileNetV2.hdf5')
+model.save(f'PATH2/VGG16.hdf5')#PATH2 is the representation of the path where the checkpoints will be stored
